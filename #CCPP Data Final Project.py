@@ -1,4 +1,4 @@
-#CCPP Data Final Project 
+#CCPP Data Trial 3 Project 
 # Import libraries
 # #This is a regression task (predicting a continuous target variable)I'm gonna name that PE
 #Linear Regression and random forest regressor will help compare performance (algorithms i'm going to use)
