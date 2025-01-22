@@ -37,13 +37,16 @@ def listen():
 # OpenAI API Key (Replace 'your-api-key' with your actual OpenAI API key)
 openai.api_key = 'your-api-key'
 
-def chat_with_gpt(prompt):
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=prompt,
-        max_tokens=100
-    )
-    return response["choices"][0]["text"].strip()
+def chatbot_response(prompt):#Changed this because the original function wasn't working 
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",  
+            messages=[{"role": "user", "content": prompt}]
+        )
+        return response["choices"][0]["message"]["content"]
+    except Exception as e:
+        return f"Error: {str(e)}"
+    
 
 def get_time():
     return datetime.datetime.now().strftime("%H:%M:%S")
@@ -90,7 +93,7 @@ def run_assistant():
             speak("What would you like to ask GPT?")
             user_input = listen()
             if user_input:
-                response = chat_with_gpt(user_input)
+                response = chatbot_response(user_input) #updated function
                 speak(response)
         
         else:
