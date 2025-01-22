@@ -34,7 +34,7 @@ def listen():
         print("Could not request results, please check your connection.")
         return ""
 
-# OpenAI API Key (Replace 'your-api-key' with your actual OpenAI API key)
+#Don't forget to replace with an actual key
 openai.api_key = 'your-api-key'
 
 def chatbot_response(prompt):#Changed this because the original function wasn't working 
